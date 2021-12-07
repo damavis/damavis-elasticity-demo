@@ -7,7 +7,7 @@ case class Arguments(environment: String = "")
 case object Arguments {
   def getArguments(args: Array[String]): Option[Arguments] = {
     val parser: OptionParser[Arguments] =
-      new OptionParser[Arguments]("test") {
+      new OptionParser[Arguments]("damavis-elasticity-demo") {
         opt[String]("environment")
           .text("Environment. Either 'pre' or 'live'")
           .required()
