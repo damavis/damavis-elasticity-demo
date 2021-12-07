@@ -5,7 +5,7 @@ val sparkVersion = "3.2.0"
 val sparkDependencies = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % Provided,
   "org.apache.spark" %% "spark-sql" % sparkVersion % Provided,
-  "org.apache.spark" %% "spark-hive" % sparkVersion % Provided,
+  "org.apache.spark" %% "spark-hive" % sparkVersion,
   "org.apache.spark" %% "spark-mllib" % sparkVersion % Provided
 )
 
@@ -28,6 +28,11 @@ lazy val settings = Seq(
   Test / fork := false,
   Test / parallelExecution := false
 )
+
+assembly / assemblyMergeStrategy := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
 
 lazy val assemblySettings: Seq[SettingsDefinition] = Seq(
   Compile / runMain := Defaults
