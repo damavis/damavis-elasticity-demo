@@ -22,9 +22,9 @@ class PipelineInstance(arguments: Arguments) extends SparkApp with SparkConf {
     val repository: Repository = new RepositoryImpl(config, resource)
 
     // Interactors
-    val computeMeanPrice: PipelineStage = new ComputeMeanPrice
-    val createLogFeatures: PipelineStage = new CreateLogFeatures
-    val fitMultiplicativeDemandModel: PipelineStage = new FitMultiplicativeDemandModel
+    val computeMeanPrice: PipelineStage = new ComputeMeanPrice()
+    val createLogFeatures: PipelineStage = new CreateLogFeatures()
+    val fitMultiplicativeDemandModel: PipelineStage = new FitMultiplicativeDemandModel()
 
     // Pipeline
     val pipeline = new Pipeline(repository, createLogFeatures, computeMeanPrice, fitMultiplicativeDemandModel)

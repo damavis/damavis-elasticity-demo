@@ -1,4 +1,4 @@
-name := "test"
+name := "damavis-elasticity-demo"
 
 val sparkVersion = "3.2.0"
 
@@ -21,7 +21,7 @@ val testDependencies = Seq(
 )
 
 lazy val settings = Seq(
-  organization := "com.damavis.cereals",
+  organization := "com.damavis",
   version := "0.1.0-SNAPSHOT",
   scalaVersion := "2.12.12",
   libraryDependencies ++= sparkDependencies ++ actualDependencies ++ testDependencies,
