@@ -29,12 +29,11 @@ lazy val settings = Seq(
   Test / parallelExecution := false
 )
 
-assembly / assemblyMergeStrategy := {
-  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
-  case x => MergeStrategy.first
-}
-
 lazy val assemblySettings: Seq[SettingsDefinition] = Seq(
+  assembly / assemblyMergeStrategy := {
+    case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+    case x => MergeStrategy.first
+  },
   Compile / runMain := Defaults
     .runMainTask(Compile / fullClasspath, Compile / run / runner)
     .evaluated
